@@ -59,16 +59,25 @@ Andreas Henriksson <andreas at fatal.se>
 Andrew Bays <abays at redhat.com>
  - procevent plugin.
  - sysevent plugin.
+ - connectivity plugin.
 
+>>>>>>> eea34da7... connectivity plugin initial commit
 Andy Parkins <andyp at fussylogic.co.uk>
  - battery plugin: sysfs code.
 
+<<<<<<< HEAD
 Andy Smith <ansmith at redhat.com>
  - AMQP 1.0 plugin.
 
 Aneesh Puttur <aputtur at redhat.com>
  - connectivity plugin.
 
+||||||| parent of eea34da7... connectivity plugin initial commit
+=======
+Aneesh Puttur <aputtur at redhat.com>
+ - connectivity plugin.
+
+>>>>>>> eea34da7... connectivity plugin initial commit
 Anthony Dewhurst <dewhurst at gmail.com>
  - zfs_arc plugin.
 
