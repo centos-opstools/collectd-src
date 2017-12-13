@@ -6417,6 +6417,7 @@ plugin_serial="no"
 plugin_smart="no"
 plugin_swap="no"
 plugin_synproxy="no"
+plugin_sysevent="no"
 plugin_tape="no"
 plugin_tcpconns="no"
 plugin_ted="no"
@@ -6600,7 +6601,8 @@ plugin_curl_xml="yes"
 fi
 
 if test "x$with_libyajl" = "xyes"; then
-plugin_ceph="yes"
+  plugin_ceph="yes"
+  plugin_sysevent="yes"
 fi
 
 if test "x$have_processor_info" = "xyes"; then
@@ -6945,7 +6947,6 @@ AC_PLUGIN([xmms],                [$with_libxmms],             [XMMS statistics])
 AC_PLUGIN([zfs_arc],             [$plugin_zfs_arc],           [ZFS ARC statistics])
 AC_PLUGIN([zone],                [$plugin_zone],              [Solaris container statistics])
 AC_PLUGIN([zookeeper],           [yes],                       [Zookeeper statistics])
-
 dnl Default configuration file
 # Load either syslog or logfile
 LOAD_PLUGIN_SYSLOG=""
@@ -7330,6 +7331,7 @@ AC_MSG_RESULT([    snmp_agent  . . . . . $enable_snmp_agent])
 AC_MSG_RESULT([    statsd  . . . . . . . $enable_statsd])
 AC_MSG_RESULT([    swap  . . . . . . . . $enable_swap])
 AC_MSG_RESULT([    synproxy  . . . . . . $enable_synproxy])
+AC_MSG_RESULT([    sysevent. . . . . . . $enable_sysevent])
 AC_MSG_RESULT([    syslog  . . . . . . . $enable_syslog])
 AC_MSG_RESULT([    table . . . . . . . . $enable_table])
 AC_MSG_RESULT([    tail_csv  . . . . . . $enable_tail_csv])
