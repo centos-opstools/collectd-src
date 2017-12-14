@@ -6270,6 +6270,7 @@ if test "x$ac_system" = "xLinux"; then
     plugin_ovs_events="yes"
     plugin_ovs_stats="yes"
     plugin_procevent="yes"
+    plugin_sysevent="yes"
   fi
 fi
 
@@ -6374,7 +6375,6 @@ fi
 
 if test "x$with_libyajl" = "xyes"; then
   plugin_ceph="yes"
-  plugin_sysevent="yes"
 fi
 
 if test "x$have_processor_info" = "xyes"; then
