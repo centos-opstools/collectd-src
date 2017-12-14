@@ -6493,6 +6493,7 @@ if test "x$ac_system" = "xLinux"; then
     if test "x$with_libmnl" = "xyes"; then
       plugin_connectivity="yes"
     fi
+    plugin_sysevent="yes"
   fi
 fi
 
@@ -6602,7 +6603,6 @@ fi
 
 if test "x$with_libyajl" = "xyes"; then
   plugin_ceph="yes"
-  plugin_sysevent="yes"
 fi
 
 if test "x$have_processor_info" = "xyes"; then
