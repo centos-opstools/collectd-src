@@ -6436,61 +6436,58 @@ plugin_zookeeper="no"
 
 # Linux
 if test "x$ac_system" = "xLinux"; then
-plugin_battery="yes"
-plugin_cgroups="yes"
-plugin_conntrack="yes"
-plugin_contextswitch="yes"
-plugin_cpu="yes"
-plugin_cpufreq="yes"
-plugin_disk="yes"
-plugin_drbd="yes"
-plugin_entropy="yes"
-plugin_fhcount="yes"
-plugin_fscache="yes"
-plugin_hugepages="yes"
-plugin_interface="yes"
-plugin_ipc="yes"
-plugin_irq="yes"
-plugin_load="yes"
-plugin_lvm="yes"
-plugin_mcelog="yes"
-plugin_memory="yes"
-plugin_nfs="yes"
-plugin_numa="yes"
-plugin_processes="yes"
-plugin_procevent="yes"
-plugin_protocols="yes"
-plugin_serial="yes"
-plugin_swap="yes"
-plugin_synproxy="yes"
-plugin_tcpconns="yes"
-plugin_thermal="yes"
-plugin_uptime="yes"
-plugin_vmem="yes"
-plugin_vserver="yes"
-plugin_wireless="yes"
-plugin_zfs_arc="yes"
+  plugin_battery="yes"
+  plugin_cgroups="yes"
+  plugin_conntrack="yes"
+  plugin_contextswitch="yes"
+  plugin_cpu="yes"
+  plugin_cpufreq="yes"
+  plugin_disk="yes"
+  plugin_drbd="yes"
+  plugin_entropy="yes"
+  plugin_fhcount="yes"
+  plugin_fscache="yes"
+  plugin_hugepages="yes"
+  plugin_interface="yes"
+  plugin_ipc="yes"
+  plugin_irq="yes"
+  plugin_load="yes"
+  plugin_lvm="yes"
+  plugin_mcelog="yes"
+  plugin_memory="yes"
+  plugin_nfs="yes"
+  plugin_numa="yes"
+  plugin_processes="yes"
+  plugin_procevent="yes"
+  plugin_protocols="yes"
+  plugin_serial="yes"
+  plugin_swap="yes"
+  plugin_synproxy="yes"
+  plugin_tcpconns="yes"
+  plugin_thermal="yes"
+  plugin_uptime="yes"
+  plugin_vmem="yes"
+  plugin_vserver="yes"
+  plugin_wireless="yes"
+  plugin_zfs_arc="yes"
 
-if test "x$ac_cv_header_linux_ip_vs_h" = "xyes"; then
-  plugin_ipvs="yes"
-fi
+  if test "x$ac_cv_header_linux_ip_vs_h" = "xyes"; then
+    plugin_ipvs="yes"
+  fi
 
-if test "x$have_cpuid_h" = "xyes"; then
-  plugin_turbostat="yes"
-fi
+  if test "x$have_cpuid_h" = "xyes"; then
+    plugin_turbostat="yes"
+  fi
 
-if test "x$c_cv_have_clock_boottime_monotonic" = "xyes"; then
-  plugin_cpusleep="yes"
-fi
+  if test "x$c_cv_have_clock_boottime_monotonic" = "xyes"; then
+    plugin_cpusleep="yes"
+  fi
 
-if test "x$with_libyajl" = "xyes" && test "x$with_libyajl2" = "xyes"; then
-  plugin_ovs_events="yes"
-  plugin_ovs_stats="yes"
-fi
-
-if test "x$have_pci_regs_h" = "xyes"; then
-  plugin_pcie_errors="yes"
-fi
+  if test "x$with_libyajl" = "xyes" && test "x$with_libyajl2" = "xyes"; then
+    plugin_ovs_events="yes"
+    plugin_ovs_stats="yes"
+    plugin_procevent="yes"
+  fi
 fi
 
 if test "x$ac_system" = "xOpenBSD"; then
