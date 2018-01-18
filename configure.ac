@@ -6369,6 +6369,7 @@ plugin_battery="no"
 plugin_bind="no"
 plugin_ceph="no"
 plugin_cgroups="no"
+plugin_connectivity="no"
 plugin_conntrack="no"
 plugin_contextswitch="no"
 plugin_cpu="no"
@@ -6487,6 +6488,10 @@ if test "x$ac_system" = "xLinux"; then
     plugin_ovs_events="yes"
     plugin_ovs_stats="yes"
     plugin_procevent="yes"
+
+    if test "x$with_libmnl" = "xyes"; then
+      plugin_connectivity="yes"
+    fi
   fi
 fi
 
