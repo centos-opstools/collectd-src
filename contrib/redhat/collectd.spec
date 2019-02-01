@@ -161,6 +161,7 @@
 %define with_write_redis 0%{!?_without_write_redis:1}
 %define with_write_riemann 0%{!?_without_write_riemann:1}
 %define with_write_sensu 0%{!?_without_write_sensu:1}
+%define with_write_syslog 0%{!?_without_write_syslog:1}
 %define with_write_tsdb 0%{!?_without_write_tsdb:1}
 %define with_xmms 0%{!?_without_xmms:0%{?_has_xmms}}
 %define with_zfs_arc 0%{!?_without_zfs_arc:1}
@@ -1908,6 +1909,12 @@ Collectd utilities
 %define _with_write_sensu --disable-write_sensu
 %endif
 
+%if %{with_write_syslog}
+%define _with_write_syslog --enable-write_syslog
+%else
+%define _with_write_syslog --disable-write_syslog
+%endif
+
 %if %{with_write_tsdb}
 %define _with_write_tsdb --enable-write_tsdb
 %else
@@ -2101,6 +2108,7 @@ Collectd utilities
 	%{?_with_write_redis} \
 	%{?_with_write_riemann} \
 	%{?_with_write_sensu} \
+	%{?_with_write_syslog} \
 	%{?_with_write_tsdb} \
 	%{?_with_xencpu} \
 	%{?_with_xmms} \
@@ -2437,6 +2445,9 @@ fi
 %endif
 %if %{with_write_sensu}
 %{_libdir}/%{name}/write_sensu.so
+%endif
+%if %{with_write_syslog}
+%{_libdir}/%{name}/write_syslog.so
 %endif
 %if %{with_write_tsdb}
 %{_libdir}/%{name}/write_tsdb.so

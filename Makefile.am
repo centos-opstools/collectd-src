@@ -1907,6 +1907,12 @@ write_sensu_la_SOURCES = src/write_sensu.c
 write_sensu_la_LDFLAGS = $(PLUGIN_LDFLAGS)
 endif
 
+if BUILD_PLUGIN_WRITE_SYSLOG
+pkglib_LTLIBRARIES += write_syslog.la
+write_syslog_la_SOURCES = src/write_syslog.c
+write_syslog_la_LDFLAGS = $(PLUGIN_LDFLAGS)
+endif
+
 if BUILD_PLUGIN_WRITE_TSDB
 pkglib_LTLIBRARIES += write_tsdb.la
 write_tsdb_la_SOURCES = src/write_tsdb.c

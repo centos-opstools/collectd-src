@@ -10091,6 +10091,100 @@ I<Riemann>.
 
 Consider the two given strings to be the key and value of an additional
 attribute for each metric being sent out to I<Riemann>.
+=back
+
+=head2 Plugin C<write_syslog>
+
+The C<write_syslog> plugin writes data to I<syslog>, an open-source software
+utility used on UNIX and Unix-like computer systems for forwarding log messages
+in an IP network. It implements the basic syslog protocol, extends it with
+content-based filtering, rich filtering capabilities,
+flexible configuration options and adds features such as using TCP for transport.
+The plugin connects to a I<syslog> daemon that ingests metrics, transforms and
+ships them to the specified output.
+The plugin uses I<TCP> over the "line based" protocol with a default port 44514.
+The data will be sent in blocks of at most 1428 bytes to minimize the number of
+network packets.
+
+Synopsis:
+
+ <Plugin write_syslog>
+   ResolveInterval 60
+   ResolveJitter 60
+   <Node "example">
+     Host "rsyslog-1.my.domain"
+     Port "44514"
+     Prefix "collectd"
+     HostTags "\"foo\": {\"bar\":\"value\"}"
+   </Node>
+ </Plugin>
+
+The configuration consists of one or more E<lt>B<Node>E<nbsp>I<Name>E<gt>
+blocks and global directives.
+
+Global directives are:
+
+=over 4
+
+=item B<ResolveInterval> I<seconds>
+
+=item B<ResolveJitter> I<seconds>
+
+When I<collectd> connects to a syslog node, it will request the hostname from
+DNS. This can become a problem if the syslog node is unavailable or badly
+configured because collectd will request DNS in order to reconnect for every
+metric, which can flood your DNS. So you can cache the last value for
+I<ResolveInterval> seconds.
+Defaults to the I<Interval> of the I<write_syslog plugin>, e.g. 10E<nbsp>seconds.
+
+You can also define a jitter, a random interval to wait in addition to
+I<ResolveInterval>. This prevents all your collectd servers to resolve the
+hostname at the same time when the connection fails.
+Defaults to the I<Interval> of the I<write_syslog plugin>, e.g. 10E<nbsp>seconds.
+
+B<Note:> If the DNS resolution has already been successful when the socket
+closes, the plugin will try to reconnect immediately with the cached
+information. DNS is queried only when the socket is closed for a longer than
+I<ResolveInterval> + I<ResolveJitter> seconds.
+
+=back
+
+Inside the B<Node> blocks, the following options are recognized:
+
+=over 4
+
+=item B<Host> I<Address>
+
+Hostname or address to connect to. Defaults to C<localhost>.
+
+=item B<Port> I<Service>
+
+Service name or port number to connect to. Defaults to C<4242>.
+
+
+=item B<HostTags> I<String>
+
+When set, I<HostTags> is added to the end of the metric. It is intended to be
+used for adding additional metadata to tag the metric with. Dots and
+whitespace are I<not> escaped in this string.
+
+=item B<StoreRates> B<false>|B<true>
+
+If set to B<true>, convert counter values to rates. If set to B<false>
+(the default) counter values are stored as is, as an increasing
+integer number.
+
+=item B<AlwaysAppendDS> B<false>|B<true>
+
+If set the B<true>, append the name of the I<Data Source> (DS) to the "metric"
+identifier. If set to B<false> (the default), this is only done when there is
+more than one DS.
+
+=item B<Prefix> I<String>
+
+When set, I<Prefix> is added to all metrics names as a prefix. It is intended in
+case the you want to be able to define the source of the specific metric. Dots and
+whitespace are I<not> escaped in this string.
 
 =back
 

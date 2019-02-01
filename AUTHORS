@@ -186,6 +186,9 @@ Julien Ammous <j.ammous at gmail.com>
 Kevin Bowling <kbowling at llnw.com>
  - write_tsdb plugin for http://opentsdb.net/
 
+Shirly Radco <sradco at redhat.com>
+ - write_syslog plugin.
+
 Kimo Rosenbaum <kimor79 at yahoo.com>
  - openldap plugin.
 
