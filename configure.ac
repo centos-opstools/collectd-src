@@ -6488,17 +6488,12 @@ if test "x$ac_system" = "xLinux"; then
   if test "x$with_libyajl" = "xyes" && test "x$with_libyajl2" = "xyes"; then
     plugin_ovs_events="yes"
     plugin_ovs_stats="yes"
-<<<<<<< HEAD
     plugin_procevent="yes"
 
     if test "x$with_libmnl" = "xyes"; then
       plugin_connectivity="yes"
     fi
     plugin_sysevent="yes"
-||||||| merged common ancestors
-    plugin_sysevent="yes"
-=======
->>>>>>> VES-enabled sysvent plugin
   fi
 fi
 
@@ -6889,7 +6884,6 @@ AC_PLUGIN([pcie_errors],         [$plugin_pcie_errors],       [PCIe errors plugi
 AC_PLUGIN([perl],                [$plugin_perl],              [Embed a Perl interpreter])
 AC_PLUGIN([pf],                  [$have_net_pfvar_h],         [BSD packet filter (PF) statistics])
 # FIXME: Check for libevent, too.
-<<<<<<< HEAD
 AC_PLUGIN([pinba],               [$plugin_pinba],             [Pinba statistics])
 AC_PLUGIN([ping],                [$with_liboping],            [Network latency statistics])
 AC_PLUGIN([postgresql],          [$with_libpq],               [PostgreSQL database statistics])
